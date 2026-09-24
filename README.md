@@ -23,3 +23,9 @@ Um prompt que não diz só *o que* gerar, mas *como produzir, como testar e quan
 - `context/` — currículo, leitor simulado, descrições das cenas
 
 Conteúdo aberto e gratuito — INEMA.CLUB.
+
+## Mais no INEMA.CLUB
+
+- [Ficha deste curso](https://www.inema.club/cursos/287-motion-rise-v6-animacoes-que-saem-de-um-pedido/)
+- [Guia: como aprender inteligência artificial](https://www.inema.club/aprender-inteligencia-artificial/)
+- [Todos os cursos](https://www.inema.club/cursos/)
