@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logotipo animado · exemplo RISE</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@1,6..72,500&display=swap" rel="stylesheet">
+<style>html,body{margin:0;height:100%;background:#f7eee6;overflow:hidden}canvas{display:block;width:100%;height:100%}
+#som{position:absolute;right:8px;bottom:8px;font:600 13px system-ui,sans-serif;padding:7px 10px;border-radius:8px;border:1px solid #b89a86;background:#fffaf5;color:#4a2e22;cursor:pointer}</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<button id="som" type="button">ligar som</button>
+<script>
+// Nível 5 do método RISE: vinheta de 5 s de um logotipo fictício (bolinho com cobertura).
+// A cobertura escorre e o nome do ateliê aparece letra a letra; um sino suave toca quando o nome completa.
+// Começa mudo. Função pura render(ctx, t, theme, w, h). ?t=2 congela.
+const DUR = 5, NOME = 'Ateliê Doce';
+const theme = { bg: '#f7eee6', ink: '#4a2e22', accent: '#e07a95', accent2: '#c9956b', font: 'Newsreader' };
+function hash(x, y) { let h = (x * 374761393 + y * 668265263) | 0; h = (h ^ (h >>> 13)) * 1274126177; return ((h ^ (h >>> 16)) >>> 0) / 4294967295; }
+const ease = u => u < .5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2;
+const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+
+function render(ctx, t, th, w, h) {
+  t = ((t % DUR) + DUR) % DUR;
+  const s = Math.min(w, h), cx = w / 2, cy = h * .36;
+  const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.max(w, h) * .7);
+  g.addColorStop(0, '#fffaf5'); g.addColorStop(1, '#efdccd');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+  for (let i = 0; i < 1200; i++) { ctx.fillStyle = `rgba(110,60,40,${hash(i, 3) * .06})`; ctx.fillRect(hash(i, 1) * w, hash(i, 2) * h, 1.3, 1.3); }
+  const saida = ease(clamp((t - 4.3) / .7));        // volta ao começo
+  const escorre = ease(clamp((t - .3) / 1.8)) * (1 - saida);
+  // forminha (base listrada)
+  const bw = s * .52, bh = s * .28, by = cy + s * .02;
+  ctx.fillStyle = th.accent2;
+  ctx.beginPath(); ctx.moveTo(cx - bw / 2, by); ctx.lineTo(cx + bw / 2, by); ctx.lineTo(cx + bw * .38, by + bh); ctx.lineTo(cx - bw * .38, by + bh); ctx.closePath(); ctx.fill();
+  ctx.strokeStyle = 'rgba(74,46,34,.35)'; ctx.lineWidth = s * .006;
+  for (let k = -3; k <= 3; k++) { ctx.beginPath(); ctx.moveTo(cx + k * bw / 7.5, by); ctx.lineTo(cx + k * bw / 9.5, by + bh); ctx.stroke(); }
+  // cobertura: cúpula + pingos que escorrem
+  ctx.fillStyle = th.accent;
+  ctx.beginPath(); ctx.ellipse(cx, by, bw * .56, s * .22, 0, Math.PI, 0); ctx.fill();
+  const pingos = [-.4, -.18, .05, .27, .45];
+  pingos.forEach((p, i) => {
+    const len = s * (.1 + .1 * hash(i, 5)) * clamp(escorre * 1.4 - i * .08);
+    const px = cx + p * bw, r = s * .036;
+    ctx.fillRect(px - r, by - s * .01, r * 2, len + s * .01);
+    ctx.beginPath(); ctx.arc(px, by + len, r, 0, 7); ctx.fill();
+  });
+  // brilho
+  ctx.fillStyle = 'rgba(255,255,255,.35)'; ctx.beginPath(); ctx.ellipse(cx - bw * .18, by - s * .13, s * .07, s * .028, -.4, 0, 7); ctx.fill();
+  // nome letra a letra (2.0–3.2 s)
+  ctx.font = `italic 500 ${s * .15}px ${th.font}, serif`; ctx.textAlign = 'left';
+  const larg = ctx.measureText(NOME).width; let x = cx - larg / 2; const ny = Math.min(by + bh + s * .17, h - s * .05);
+  [...NOME].forEach((c, i) => {
+    const a = clamp((t - 2 - i * .1) / .3) * (1 - saida);
+    ctx.globalAlpha = a; ctx.fillStyle = th.ink; ctx.fillText(c, x, ny + (1 - a) * s * .03); ctx.globalAlpha = 1;
+    x += ctx.measureText(c).width;
+  });
+  const vig = ctx.createRadialGradient(cx, h / 2, s * .35, cx, h / 2, Math.max(w, h) * .75);
+  vig.addColorStop(0, 'rgba(0,0,0,0)'); vig.addColorStop(1, 'rgba(90,50,30,.12)'); ctx.fillStyle = vig; ctx.fillRect(0, 0, w, h);
+}
+
+// sino de 3 s em código, preso ao instante em que o nome completa (t = 3.2 s)
+let audio = null, somLigado = false, ultimo = -1;
+function sino() {
+  if (!audio) return; const n = audio.currentTime;
+  [[880, 0], [1320, .12], [1760, .24]].forEach(([f, d]) => {
+    const o = audio.createOscillator(), v = audio.createGain(); o.type = 'sine'; o.frequency.value = f;
+    v.gain.setValueAtTime(0, n + d); v.gain.linearRampToValueAtTime(.18, n + d + .02); v.gain.exponentialRampToValueAtTime(.0001, n + d + 2.6);
+    o.connect(v).connect(audio.destination); o.start(n + d); o.stop(n + d + 2.8);
+  });
+}
+document.getElementById('som').addEventListener('click', e => {
+  somLigado = !somLigado; if (somLigado && !audio) audio = new AudioContext();
+  e.target.textContent = somLigado ? 'desligar som' : 'ligar som';
+});
+const cv = document.getElementById('c'), ctx = cv.getContext('2d');
+const fixo = new URLSearchParams(location.search).get('t');
+function tamanho() { const d = Math.min(devicePixelRatio || 1, 2); cv.width = innerWidth * d; cv.height = innerHeight * d; }
+addEventListener('resize', tamanho); tamanho();
+const t0 = performance.now();
+function loop(now) {
+  const t = fixo !== null ? parseFloat(fixo) : (now - t0) / 1000;
+  const volta = Math.floor(t / DUR);
+  if (somLigado && t % DUR >= 3.2 && volta !== ultimo) { ultimo = volta; sino(); }
+  render(ctx, t, theme, cv.width, cv.height);
+  if (fixo === null && !matchMedia('(prefers-reduced-motion: reduce)').matches) requestAnimationFrame(loop);
+}
+document.fonts.ready.then(() => requestAnimationFrame(loop));
+</script>
+</body>
+</html>

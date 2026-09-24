@@ -16,6 +16,10 @@ Um prompt que não diz só *o que* gerar, mas *como produzir, como testar e quan
 
 ## Curso
 
-O curso (HTML) fica em `guia/` e é publicado via GitHub Pages.
+**https://inematds.github.io/motion-rise/** — 10 aulas de ~15 min (formato v6, iniciante 30+).
+
+- `landing.html` (página do curso) → `curso.html` (as aulas; montado por `montar-curso.py` a partir de `aulas/aula-N.html`)
+- `exemplos/` — animações reais em `render(t)` embutidas nas aulas (slide com feixe, pôster suíço)
+- `context/` — currículo, leitor simulado, descrições das cenas
 
 Conteúdo aberto e gratuito — INEMA.CLUB.

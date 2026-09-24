@@ -1,0 +1,122 @@
+<section class="view" id="v-aula-1" data-aula="1" data-tempo="14min">
+<div class="aula">
+<header class="a-hero">
+  <p class="kicker">Aula 1 de 10</p>
+  <h1>Uma animação que sai de <em>um pedido</em></h1>
+  <figure class="cena"><img src="assets/img/aula-1.webp" width="1280" height="720" alt="Uma confeiteira no ateliê, de avental, olha surpresa para o notebook, que mostra uma linha de luz passando por três pontos."></figure>
+  <p class="promise">Você consegue colar um pedido pronto no chat de IA e receber uma animação de 10 segundos, sem abrir nenhum programa de edição.</p>
+  <p class="why">Post parado passa batido no meio de tanto vídeo. Encomendar uma animação custa caro e leva dias. Hoje dá para pedir por escrito e receber a animação pronta na conversa.</p>
+  <div class="em1min">
+    <p class="k">Em 1 minuto</p>
+    <ol>
+      <li>A IA escreve as instruções de desenho de cada quadro. Não é um vídeo inventado.</li>
+      <li>Você descreve, ela desenha e confere. Você dá a palavra final.</li>
+      <li>Um pedido bom tem quatro partes. Hoje você usa um pronto; na aula 2 entende cada uma.</li>
+    </ol>
+  </div>
+</header>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">1</span>A animação é desenhada, não filmada</h2>
+  <p>O Claude Opus 5.5 não cria um vídeo como uma câmera. Ele escreve uma receita de desenho. O navegador lê essa receita e desenha cada <span class="gterm" data-def="cada imagem parada que forma a animação. Trinta quadros por segundo dão a sensação de movimento.">quadro</span>, muitas vezes por segundo.</p>
+  <p>Como é uma receita, o resultado se repete. A mesma receita desenha sempre a mesma animação, com as letras certas.</p>
+  <p data-ex="confeiteira">Uma confeiteira queria mostrar as três etapas de uma encomenda: pedido, forno e entrega. A animação abaixo saiu de um único pedido. Ela está rodando agora, nesta página.</p>
+  <figure class="largo">
+    <iframe src="exemplos/slide-feixe.html" title="Animação: um feixe laranja percorre uma linha e acende as etapas Encomenda, Forno e Entrega." loading="lazy" style="width:100%;aspect-ratio:16/9;border:0;border-radius:12px;display:block"></iframe>
+    <figcaption><b>Animação de verdade</b>, feita só com um pedido: um feixe acende as três etapas e volta ao começo.</figcaption>
+  </figure>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">2</span>Desenho por pedido é diferente de vídeo gerado</h2>
+  <p>Existem ferramentas que inventam vídeo a partir de uma frase. Elas servem para cenas com gente e paisagem. Para texto, logotipo e números, o desenho por pedido costuma sair melhor.</p>
+  <p data-ex="corretor">Um corretor precisava de uma abertura com o nome da imobiliária. No vídeo gerado, o nome saiu com letras trocadas. Na animação desenhada, o nome veio escrito certo.</p>
+  <figure class="largo">
+    <div class="lado">
+      <div class="neutro"><span class="rot">Vídeo gerado</span><p>Bom para pessoas, lugares e clima.</p><p>Letras e logotipos às vezes saem tortos. Cada tentativa sai diferente.</p></div>
+      <div class="bom"><span class="rot">Animação desenhada</span><p>Boa para texto, números, formas e marca.</p><p>O mesmo pedido desenha a mesma coisa. Trocar uma cor é trocar uma palavra.</p></div>
+    </div>
+    <figcaption>Os dois servem. Neste curso você aprende o jeito <b>Animação desenhada</b>.</figcaption>
+  </figure>
+</section>
+
+<section class="step" data-kind="pratica">
+  <h2><span class="n">3</span>Você cola o pedido e a animação aparece na conversa</h2>
+  <p>Tudo acontece no chat do Claude, no navegador. Escolha o modelo Opus 5.5 no seletor que fica embaixo da caixa de mensagem. Cole o pedido e envie. Se o Opus 5.5 não aparecer, a sua conta pode não ter acesso a ele: use o modelo mais avançado da lista.</p>
+  <p>A animação aparece na própria conversa, num quadro que você toca para abrir. Ela gira sem parar: o fim emenda no começo. Isso se chama <span class="gterm" data-def="animação que termina exatamente como começou, para poder repetir sem parar e sem salto visível.">loop</span>.</p>
+  <figure class="largo">
+    <div class="tela">
+      <div class="tela-top"><i></i><i></i><i></i><span>Chat de IA · Opus 5.5</span></div>
+      <div class="tela-caso" data-rotulo="Pedido solto">
+      <div class="tela-body">
+        <p class="msg eu"><span class="quem">Você</span>Faça uma animação bonita sobre a minha confeitaria.</p>
+        <p class="msg ia falha"><span class="quem">IA</span>Criei uma animação com estrelas girando, confetes coloridos e a frase "Bem-vindo à confeitaria"…</p>
+      </div>
+      <p class="tela-nota ruim">Bonita e genérica: serviria para qualquer confeitaria do país.</p>
+      </div>
+      <div class="tela-caso" data-rotulo="Pedido RISE">
+      <div class="tela-body">
+        <p class="msg eu"><span class="quem">Você</span>R: Não tenho arquivo. Título: Do pedido à entrega. Etapas: Encomenda, Forno, Entrega.
+I: Um loop de 10 segundos: um feixe de luz acende as três etapas, uma por vez.
+S: Papel marfim, tinta preta, um destaque laranja-argila. Movimento lento e suave.
+E: Confira os quadros em 0%, 25%, 50%, 75% e 100% e corrija o que estiver errado.</p>
+        <p class="msg ia ok"><span class="quem">IA</span>Pronto. A animação está no quadro abaixo. Conferi os cinco quadros. No primeiro teste, o título encostava na borda; afastei e desenhei de novo.</p>
+      </div>
+      <p class="tela-nota bom">A própria IA achou e corrigiu um problema antes de entregar. É o efeito da última linha.</p>
+      </div>
+    </div>
+    <figcaption><b>Toque nos dois botões</b> e compare o pedido solto com o pedido de quatro linhas.</figcaption>
+  </figure>
+  <div class="calma"><p><span class="k">Se travou aqui, é normal</span>Se a animação não aparecer, escreva "mostre a animação num quadro que eu possa abrir aqui na conversa". Se aparecer parada, peça "faça ela rodar em loop".</p></div>
+</section>
+
+<section class="practice" data-mode="prompt">
+  <p class="pk">Pratique agora <span class="pcount">0/3</span></p>
+  <h3 class="ph">Faça a sua primeira animação</h3>
+  <p class="pgoal">Pronto quando a animação estiver rodando na sua conversa, com as suas três etapas. No computador ou no aplicativo do Claude no celular, cerca de 8 minutos.</p>
+  <p class="psafe">É só uma conversa: nada é publicado. Se sair estranho, mande o mesmo pedido de novo numa conversa nova. As linhas técnicas do fim, como render(t) e 1920x1080, são instruções para a IA: copie sem mexer.</p>
+  <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">R: Não tenho arquivo. Use este conteúdo.
+Título: &lt;Do pedido à entrega&gt;
+Etapas: &lt;Encomenda&gt;, &lt;Forno&gt;, &lt;Entrega&gt;
+I: Um loop de 10 segundos: um feixe de luz percorre uma linha do tempo e acende as três etapas, uma de cada vez. O último quadro é igual ao primeiro.
+S: Visual: papel marfim, linhas em tinta preta, um único destaque laranja-argila. Movimento lento e suave. 1920x1080.
+E: Desenhe todos os quadros em código a partir de uma única função render(t). Adicione textura real para parecer feito à mão. Antes de terminar, confira os quadros em 0%, 25%, 50%, 75% e 100% e corrija o que estiver errado.</pre></div>
+  <details class="mais"><summary>Veja o molde preenchido por um corretor</summary>
+    <p><b>Título:</b> Da visita às chaves<br><b>Etapas:</b> Visita, Proposta, Escritura<br>O resto do pedido fica igual.</p>
+  </details>
+  <ol class="psteps">
+    <li><label><input type="checkbox" data-ptask="1"> <span>Copie o molde e troque o que está entre &lt; &gt; por três etapas do seu trabalho.</span></label></li>
+    <li><label><input type="checkbox" data-ptask="2"> <span>Abra o chat do Claude, escolha o Opus 5.5, cole e envie.</span></label></li>
+    <li><label><input type="checkbox" data-ptask="3"> <span>Abra a animação e assista duas voltas inteiras.</span></label></li>
+  </ol>
+  <p class="pdone">Você acabou de fazer uma animação de verdade, só com um pedido escrito.</p>
+</section>
+
+<div class="fecho">
+  <div class="cola">
+    <p class="k">Cola da aula</p>
+    <h3>Animação por pedido</h3>
+    <ol>
+      <li><span><b>Receita de desenho</b>a IA escreve instruções; o navegador desenha cada quadro.</span></li>
+      <li><span><b>Serve para marca</b>texto, números e logotipo saem certos e se repetem.</span></li>
+      <li><span><b>Onde</b>chat do Claude, modelo Opus 5.5, animação na própria conversa.</span></li>
+    </ol>
+  </div>
+  <div class="next-action">
+    <p class="nak">Seu próximo passo</p>
+    <p class="na-win">Você já sabe tirar uma animação pronta de um pedido escrito.</p>
+    <p class="na-action">Hoje, troque só as cores do pedido (por exemplo, "fundo azul-marinho e destaque dourado") e compare as duas versões.</p>
+    <p class="na-hook">Na próxima aula: o pedido tinha quatro linhas com letras R, I, S e E. Você vai entender o papel de cada uma e escrever a sua do zero.</p>
+  </div>
+</div>
+<nav class="lnav"><a href="#trilha">← trilha</a><a class="next" href="#aula-2">próxima aula →</a></nav>
+<p class="aula-pe">Aula 1 · Motion RISE v6 · INEMA.CLUB PRO</p>
+</div>
+<script type="application/json" id="cards-1">
+[
+  {"front":"Um cliente pede uma abertura com o nome da loja escrito sem erro. Você usaria vídeo gerado ou animação desenhada por pedido?","back":"Animação desenhada. O texto é desenhado letra por letra pela receita, então sai certo e igual toda vez."},
+  {"front":"Por que o mesmo pedido desenha sempre a mesma animação?","back":"Porque a IA entrega uma receita de desenho, não um vídeo sorteado. O navegador segue a receita do mesmo jeito toda vez."},
+  {"front":"A animação apareceu, mas parada. O que você escreve na conversa?","back":"\"Faça ela rodar em loop\" — e, se precisar, \"mostre num quadro que eu possa abrir aqui\"."}
+]
+</script>
+</section>

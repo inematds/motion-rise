@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slide que se move · exemplo RISE</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500&family=Inter:wght@500;600&display=swap" rel="stylesheet">
+<style>html,body{margin:0;height:100%;background:#f3ecdf;overflow:hidden}canvas{display:block;width:100%;height:100%}</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+// Nível 1 do método RISE: um feixe percorre a linha do tempo e acende três marcos. Loop de 10 s.
+// Tudo sai de uma função pura render(ctx, t, theme, w, h): mesmo t, mesmo quadro.
+// ?t=2.5 congela num instante (usado na conferência dos cinco quadros).
+const DUR = 10;
+const theme = { bg: '#f3ecdf', ink: '#1f1b16', accent: '#c8643b', soft: '#8a7f70', font: 'Inter' };
+const MARCOS = ['Encomenda', 'Forno', 'Entrega'];
+
+function hash(x, y) { let h = (x * 374761393 + y * 668265263) | 0; h = (h ^ (h >>> 13)) * 1274126177; return ((h ^ (h >>> 16)) >>> 0) / 4294967295; }
+const ease = u => u < .5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2;
+const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+
+function render(ctx, t, th, w, h) {
+  const p = (t % DUR) / DUR;
+  const s = Math.min(w, h);
+  const retrato = h >= w * .95;
+  // fundo com queda de luz
+  const g = ctx.createRadialGradient(w * .3, h * .25, 0, w * .5, h * .5, Math.max(w, h) * .8);
+  g.addColorStop(0, '#fbf6ec'); g.addColorStop(1, '#e6dccb');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+  // grão determinístico (fixo: o papel não "ferve")
+  for (let i = 0; i < 1800; i++) {
+    const x = hash(i, 1) * w, y = hash(i, 2) * h, a = hash(i, 3) * .07;
+    ctx.fillStyle = `rgba(60,40,20,${a})`; ctx.fillRect(x, y, 1.4, 1.4);
+  }
+  // título
+  ctx.fillStyle = th.ink; ctx.textBaseline = 'alphabetic';
+  ctx.font = `500 ${s * (retrato ? .13 : .13)}px Newsreader, serif`;
+  const tx = retrato ? w * .1 : w * .1;
+  const ty = h * (retrato ? .18 : .3), lh = s * (retrato ? .15 : .15);
+  ctx.fillText('Do pedido', tx, ty);
+  ctx.fillText('à entrega', tx, ty + lh);
+  ctx.fillStyle = th.accent; ctx.fillRect(tx, ty - lh * 1.05, s * .1, s * .012);
+
+  // linha do tempo: horizontal na paisagem, vertical no retrato
+  const A = retrato ? { x: w * .22, y: h * .42 } : { x: w * .1, y: h * .72 };
+  const B = retrato ? { x: w * .22, y: h * .88 } : { x: w * .9, y: h * .72 };
+  ctx.strokeStyle = th.soft; ctx.lineWidth = s * .004; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.moveTo(A.x, A.y); ctx.lineTo(B.x, B.y); ctx.stroke();
+
+  // feixe: vai (0→0.7), segura, volta a apagar (0.85→1) para o loop fechar
+  const ida = ease(clamp(p / .7));
+  const fade = 1 - ease(clamp((p - .85) / .15));
+  const bx = A.x + (B.x - A.x) * ida, by = A.y + (B.y - A.y) * ida;
+  ctx.globalAlpha = fade;
+  ctx.strokeStyle = th.accent; ctx.lineWidth = s * .008;
+  ctx.beginPath(); ctx.moveTo(A.x, A.y); ctx.lineTo(bx, by); ctx.stroke();
+  const brilho = ctx.createRadialGradient(bx, by, 0, bx, by, s * .06);
+  brilho.addColorStop(0, 'rgba(200,100,59,.55)'); brilho.addColorStop(1, 'rgba(200,100,59,0)');
+  ctx.fillStyle = brilho; ctx.beginPath(); ctx.arc(bx, by, s * .06, 0, 7); ctx.fill();
+  ctx.globalAlpha = 1;
+
+  MARCOS.forEach((nome, i) => {
+    const k = (i + .5) / MARCOS.length;
+    const mx = A.x + (B.x - A.x) * k, my = A.y + (B.y - A.y) * k;
+    const aceso = clamp((ida - k) / .06) * fade;
+    ctx.fillStyle = th.bg; ctx.strokeStyle = th.ink; ctx.lineWidth = s * .004;
+    ctx.beginPath(); ctx.arc(mx, my, s * .03, 0, 7); ctx.fill(); ctx.stroke();
+    if (aceso > 0) { ctx.globalAlpha = aceso; ctx.fillStyle = th.accent; ctx.beginPath(); ctx.arc(mx, my, s * .022, 0, 7); ctx.fill(); ctx.globalAlpha = 1; }
+    ctx.fillStyle = aceso > .5 ? th.ink : th.soft;
+    ctx.font = `600 ${s * (retrato ? .075 : .068)}px ${th.font}, sans-serif`;
+    if (retrato) { ctx.textAlign = 'left'; ctx.fillText(nome, mx + s * .06, my + s * .013); }
+    else { ctx.textAlign = 'center'; ctx.fillText(nome, mx, my + s * .12); }
+    ctx.textAlign = 'left';
+  });
+  // vinheta
+  const v = ctx.createRadialGradient(w / 2, h / 2, s * .4, w / 2, h / 2, Math.max(w, h) * .75);
+  v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(60,40,20,.14)');
+  ctx.fillStyle = v; ctx.fillRect(0, 0, w, h);
+}
+
+const cv = document.getElementById('c'), ctx = cv.getContext('2d');
+const fixo = new URLSearchParams(location.search).get('t');
+function tamanho() { const d = Math.min(devicePixelRatio || 1, 2); cv.width = innerWidth * d; cv.height = innerHeight * d; }
+addEventListener('resize', tamanho); tamanho();
+const t0 = performance.now();
+function loop(now) {
+  const t = fixo !== null ? parseFloat(fixo) : (now - t0) / 1000;
+  render(ctx, t, theme, cv.width, cv.height);
+  if (fixo === null && !matchMedia('(prefers-reduced-motion: reduce)').matches) requestAnimationFrame(loop);
+}
+document.fonts.ready.then(() => requestAnimationFrame(loop));
+</script>
+</body>
+</html>

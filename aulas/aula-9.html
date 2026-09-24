@@ -1,0 +1,119 @@
+<section class="view" id="v-aula-9" data-aula="9" data-tempo="15min">
+<div class="aula">
+<header class="a-hero">
+  <p class="kicker">Aula 9 de 10</p>
+  <h1>Teste em cinco, <em>depois escale</em></h1>
+  <figure class="cena"><img src="assets/img/aula-9.webp" width="1280" height="720" alt="Uma confeiteira numa mesa grande olha no notebook uma grade com muitas miniaturas coloridas, com uma lista impressa de cinco itens marcados ao lado."></figure>
+  <p class="promise">Você consegue planejar uma produção em lote: um molde, uma lista e um teste com cinco peças antes de fazer todas.</p>
+  <p class="why">Uma peça ficou ótima. Agora você precisa de trinta: uma por produto, por imóvel, por cliente. Fazer uma a uma toma a semana. Fazer as trinta de uma vez sem testar pode repetir o mesmo erro trinta vezes.</p>
+  <div class="em1min">
+    <p class="k">Em 1 minuto</p>
+    <ol>
+      <li>Produção em lote tem três peças: uma lista, um molde e uma pasta de resultados.</li>
+      <li>Teste em cinco, confira, e só então faça o resto.</li>
+      <li>Para dezenas de peças, um agente de código no computador faz o trabalho pesado.</li>
+    </ol>
+  </div>
+</header>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">1</span>Uma lista, um molde, uma pasta</h2>
+  <p>O <span class="gterm" data-def="uma animação pensada para receber dados diferentes: troca o nome, as cores e o logotipo, e o resto se ajusta sozinho.">molde animado</span> é a peça que você já aprovou, com as partes que mudam separadas. A lista diz o que entra em cada peça. A pasta guarda os vídeos prontos.</p>
+  <p data-ex="corretor">Um corretor tem trinta imóveis na carteira. Quer uma vinheta de 8 segundos para cada um, com bairro, preço e a foto da fachada.</p>
+  <figure class="largo">
+    <div class="janela">
+      <div class="tela-top"><i></i><i></i><i></i><span>Meus arquivos</span></div>
+      <div class="janela-body">
+        <div class="item doc"><span class="pin">1</span> imoveis.txt (lista de texto: bairro, preço, foto)</div>
+        <div class="item doc"><span class="pin">2</span> molde-vinheta.html (a animação aprovada)</div>
+        <div class="item pasta"><span class="pin">3</span> vinhetas-prontas</div>
+        <div class="item doc dentro">01-centro.mp4</div>
+        <div class="item doc dentro">02-jardim-das-flores.mp4</div>
+      </div>
+    </div>
+    <ol class="passos">
+      <li><span class="pin">1</span><span>A lista: uma linha por peça, com o que muda.</span></li>
+      <li><span class="pin">2</span><span>O molde: a animação aprovada, com as partes que mudam no topo (aula 6).</span></li>
+      <li><span class="pin">3</span><span>A pasta: um vídeo por linha da lista.</span></li>
+    </ol>
+  </figure>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">2</span>Cinco primeiro, trinta depois</h2>
+  <p>A regra de ouro de qualquer trabalho em lote com IA: teste, confira, escale. Cinco peças mostram os problemas que só aparecem com dados reais. Um nome comprido que não cabe. Um logotipo claro em fundo claro.</p>
+  <figure class="largo">
+    <div class="lado">
+      <div class="antes"><span class="rot">Direto nos trinta</span><p>Trinta vinhetas prontas. Em oito, o nome do bairro saiu cortado.</p><p>Refazer as oito, e conferir as trinta de novo.</p></div>
+      <div class="depois"><span class="rot">Cinco, depois trinta</span><p>Nas cinco de teste, um bairro de nome longo cortou. Corrigido no molde.</p><p>As trinta saem certas de uma vez.</p></div>
+      <p class="saldo"><b>Saldo:</b> um erro achado em cinco peças, e não repetido em trinta.</p>
+    </div>
+  </figure>
+  <p data-ex="confeiteira">Uma confeiteira fez o mesmo com doze sabores. No teste de cinco, o sabor "doce de leite com nozes" não cabia. Pediu letra menor para nomes longos antes de fazer os doze.</p>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">3</span>Quem faz o trabalho pesado</h2>
+  <p>No chat, dá para fazer cinco ou dez peças. Para dezenas de vídeos, existe o <span class="gterm" data-def="uma versão da IA que trabalha no seu computador: cria pastas e arquivos, roda programas e salva os resultados sozinha, com a sua autorização.">agente de código</span>, como o Claude Code com o Opus 5.5. Ele lê a lista, preenche o molde, grava cada vídeo e monta um mural: um vídeo com todas as vinhetas lado a lado, em grade.</p>
+  <p>No chat, o caminho é o mesmo em ponto menor: "faça as cinco primeiras, uma por vez, cada uma com o botão baixar vídeo".</p>
+  <figure class="largo">
+    <div class="tela">
+      <div class="tela-top"><i></i><i></i><i></i><span>Agente de código · Opus 5.5</span></div>
+      <div class="tela-body">
+        <p class="msg eu"><span class="quem">Você</span>R: imoveis.txt tem 30 imóveis: bairro, preço e foto.
+I: Um molde de 8 segundos, "{Bairro}, a partir de {Preço}", que fique bom para qualquer imóvel.
+S: Visual das minhas cores, contraste automático para fotos claras e escuras. Grave cada um como vídeo 1080x1080 na pasta vinhetas-prontas, depois um mural com todos. Teste em 5 primeiro.
+E: confira os cinco quadros de cada vinheta e corrija antes de seguir.</p>
+        <p class="msg ia ok"><span class="quem">IA</span>Fiz as 5 primeiras e parei para você conferir. No imóvel 3, o nome do bairro é longo e encostava na borda; reduzi a letra para nomes longos. Posso seguir com os outros 25?</p>
+      </div>
+      <p class="tela-nota bom">O agente para depois do teste e espera o seu sim. É a regra do "cinco primeiro" funcionando.</p>
+    </div>
+  </figure>
+  <div class="calma"><p><span class="k">Se travou aqui, é normal</span>O agente de código pede um pouco de preparo no computador, e você não precisa dele para aproveitar esta aula. A regra de testar em cinco vale igual no chat: peça cinco peças, confira, e depois peça o resto.</p></div>
+</section>
+
+<section class="practice" data-mode="analise">
+  <p class="pk">Pratique agora <span class="pcount">0/3</span></p>
+  <h3 class="ph">Planeje uma produção em lote</h3>
+  <p class="pgoal">Pronto quando você tiver respondido as três perguntas e conferido o gabarito. Cerca de 7 minutos; anote no papel ou no bloco de notas.</p>
+  <p class="psafe">É só planejamento: nada é feito nem publicado. Não existe resposta perfeita; o gabarito mostra um caminho seguro.</p>
+  <p><b>O caso:</b> uma confeiteira quer um vídeo de 6 segundos para cada um dos 40 doces do cardápio de festa, com nome, preço do cento e a foto. Ela já tem uma animação aprovada de um doce. Os nomes vão de "brigadeiro" a "bem-casado de doce de leite com coco queimado". Algumas fotos têm fundo branco, outras fundo escuro.</p>
+  <ol class="psteps">
+    <li><label><input type="checkbox" data-ptask="1"> <span>O que vai em cada linha da lista e o que fica no topo do molde?</span></label></li>
+    <li><label><input type="checkbox" data-ptask="2"> <span>Quais cinco doces você escolheria para o teste, e por quê?</span></label></li>
+    <li><label><input type="checkbox" data-ptask="3"> <span>O que você confere nas cinco antes de liberar os outros 35?</span></label></li>
+  </ol>
+  <details class="gabarito"><summary>Ver gabarito</summary>
+    <p><b>1.</b> Cada linha: nome, preço do cento e a foto. No topo do molde: NOME, PRECO e FOTO, separados para trocar.<br><b>2.</b> Os casos difíceis, não os fáceis: o nome mais curto, o mais longo, uma foto de fundo branco, uma de fundo escuro e um doce comum.<br><b>3.</b> A faixa de cinco quadros de cada teste: nome inteiro sem corte, preço legível por tempo suficiente, contraste bom nos dois tipos de fundo, loop sem salto.</p>
+  </details>
+  <p class="pdone">Você planejou uma produção de quarenta peças que não repete o mesmo erro quarenta vezes.</p>
+</section>
+
+<div class="fecho">
+  <div class="cola">
+    <p class="k">Cola da aula</p>
+    <h3>Produção em lote</h3>
+    <ol>
+      <li><span><b>Lista, molde, pasta</b>o que muda, a peça aprovada e onde salvar.</span></li>
+      <li><span><b>Teste com os difíceis</b>cinco peças com os casos extremos.</span></li>
+      <li><span><b>Agente de código</b>para dezenas; no chat, cinco de cada vez.</span></li>
+    </ol>
+  </div>
+  <div class="next-action">
+    <p class="nak">Seu próximo passo</p>
+    <p class="na-win">Você já sabe planejar uma produção em lote que dá certo de primeira.</p>
+    <p class="na-action">Escreva a lista de uma produção real sua, com uma linha por peça. Marque os cinco casos mais difíceis.</p>
+    <p class="na-hook">Na última aula: você vai dividir o trabalho em papéis, como uma pequena equipe, e usar o método fora da animação.</p>
+  </div>
+</div>
+<nav class="lnav"><a href="#aula-8">← aula anterior</a><a class="next" href="#aula-10">próxima aula →</a></nav>
+<p class="aula-pe">Aula 9 · Motion RISE v6 · INEMA.CLUB PRO</p>
+</div>
+<script type="application/json" id="cards-9">
+[
+  {"front":"Você vai fazer vinhetas para 50 clientes. Que cinco escolhe para o teste?","back":"Os mais difíceis: o nome mais curto e o mais longo, logotipo claro e escuro, e um caso comum. Eles mostram os erros que os fáceis escondem."},
+  {"front":"Nas cinco de teste, um nome saiu cortado. Corrige a peça ou o molde?","back":"O molde, por exemplo \"letra menor para nomes longos\". Assim as outras 45 já saem certas."},
+  {"front":"Quando vale usar o agente de código em vez do chat?","back":"Quando são dezenas de peças que precisam virar arquivos de vídeo numa pasta. Para poucas, o chat resolve, cinco de cada vez."}
+]
+</script>
+</section>

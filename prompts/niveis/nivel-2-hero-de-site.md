@@ -7,11 +7,11 @@ Onde usar: landing pages, portfólios, páginas de produto, hero sections.
 
 Você precisa das cores, fontes, logotipo e textos reais do site. Duas formas:
 
-1. **Com uma API de extração de identidade visual** (serviços de scraping que devolvem um formato "branding" em JSON com logo, cores e fontes). Passe a chave da API para o agente e peça para ele chamar.
-2. **Sem serviço externo** — peça ao próprio agente:
+1. **Com um serviço pago de extração de identidade visual**, que lê o site e devolve logotipo, cores e letras. Útil para muitos sites de uma vez.
+2. **Sem serviço externo** — peça à própria IA:
 
 ```
-Abra [seusite.com], leia o HTML e o CSS e me devolva em JSON: nome da marca, URL do logotipo (SVG se houver), 2 a 4 cores principais em hex, fontes de título e de texto, título e subtítulo do hero. Não invente nada: só o que estiver no código do site.
+Abra [seusite.com], leia o HTML e o CSS e me devolva em lista: nome da marca, URL do logotipo (SVG se houver), 2 a 4 cores principais em hex, fontes de título e de texto, título e subtítulo do hero. Não invente nada: só o que estiver no código do site.
 ```
 
 ## O prompt

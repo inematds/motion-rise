@@ -1,0 +1,122 @@
+<section class="view" id="v-aula-5" data-aula="5" data-tempo="16min">
+<div class="aula">
+<header class="a-hero">
+  <p class="kicker">Aula 5 de 10</p>
+  <h1>Reel com legenda que <em>acende</em></h1>
+  <figure class="cena"><img src="assets/img/aula-5.webp" width="1280" height="720" alt="Uma confeiteira grava a si mesma decorando um bolo, com o celular num tripé e uma luz circular; outro celular na mesa mostra um vídeo vertical com uma forma colorida na metade de cima."></figure>
+  <p class="promise">Você consegue pedir um reel com animação em cima, o seu vídeo embaixo e legenda que acende palavra por palavra, e baixar o resultado para postar.</p>
+  <p class="why">Vídeo de gente falando prende mais quando algo reforça a fala na tela. Montar isso num editor toma uma tarde. Com um pedido, a animação e a legenda saem juntas.</p>
+  <div class="em1min">
+    <p class="k">Em 1 minuto</p>
+    <ol>
+      <li>A tela em pé se divide: animação em cima, você embaixo.</li>
+      <li>A legenda mostra até três palavras, e a palavra falada acende.</li>
+      <li>Peça dois botões na página: um para escolher o seu vídeo e outro para baixar o reel pronto.</li>
+    </ol>
+  </div>
+</header>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">1</span>A tela dividida em duas metades</h2>
+  <p>No celular, o vídeo é em pé. A metade de baixo mostra você falando. A metade de cima mostra uma animação que desenha a ideia da fala.</p>
+  <p data-ex="confeiteira">Uma confeiteira gravou dez segundos dizendo que a encomenda de festa precisa de sete dias de antecedência. Em cima, um calendário vira as folhas até marcar o dia 7. O exemplo abaixo está rodando.</p>
+  <figure class="largo">
+    <iframe src="exemplos/reel-legenda.html" title="Reel em pé: em cima um calendário vira até o dia 7; embaixo o lugar do vídeo, com a legenda acendendo palavra por palavra e os botões escolher vídeo e baixar vídeo." loading="lazy" style="width:min(100%,320px);aspect-ratio:9/17.5;border:0;border-radius:12px;display:block;margin:0 auto"></iframe>
+    <figcaption><b>Reel de verdade.</b> Toque em <b>escolher vídeo</b> para ver um vídeo seu na metade de baixo. Nada é enviado: o vídeo fica no seu aparelho.</figcaption>
+  </figure>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">2</span>Legenda palavra por palavra</h2>
+  <p>A legenda mostra no máximo três palavras por vez. A palavra que está sendo dita acende numa cor de destaque. Para isso, a IA precisa do <span class="gterm" data-def="a lista que diz em que segundo começa e termina cada palavra falada no vídeo.">tempo de cada palavra</span>.</p>
+  <p>O caminho mais simples: cole o texto que você falou e diga a duração do vídeo. A IA reparte o tempo entre as palavras.</p>
+  <figure class="largo">
+    <div class="tela">
+      <div class="tela-top"><i></i><i></i><i></i><span>Chat de IA · Opus 5.5</span></div>
+      <div class="tela-body">
+        <p class="msg eu"><span class="quem">Você</span>O vídeo tem 7 segundos. Eu falo: "Encomenda de festa? Peça com sete dias de antecedência."</p>
+        <p class="msg ia ok"><span class="quem">IA</span>Dividi a frase em três pedaços de até três palavras e reparti os 7 segundos pelo tamanho de cada palavra. Se ficar adiantado ou atrasado, me diga em que palavra.</p>
+      </div>
+      <p class="tela-nota bom">Sem arquivo nenhum: o texto e a duração bastam para começar.</p>
+    </div>
+  </figure>
+  <details class="mais"><summary>Quer a legenda mais precisa?</summary><p>Os aplicativos de edição de vídeo do celular que fazem legenda automática costumam exportar um arquivo com final .srt. Ele é só texto, com o tempo de cada frase. Abra, copie tudo e cole na conversa junto do pedido.</p></details>
+  <div class="calma"><p><span class="k">Se travou aqui, é normal</span>A legenda saiu adiantada? Escreva "a palavra 'sete' acende cedo demais; atrase meio segundo". Confira na faixa de cinco quadros (aula 3).</p></div>
+</section>
+
+<section class="step" data-kind="fundamento">
+  <h2><span class="n">3</span>A primeira versão vem carregada</h2>
+  <p>Um aviso honesto: nos testes deste método, o primeiro reel veio cheio demais. Muita coisa entrando e saindo, e uma letra rabiscada difícil de ler. O conserto é uma frase.</p>
+  <figure class="largo">
+    <div class="lado">
+      <div class="antes"><span class="rot">Primeira versão</span><p>Ícones, setas, brilhos e três frases ao mesmo tempo na metade de cima. Letra decorativa na legenda.</p></div>
+      <div class="depois"><span class="rot">Depois de uma frase</span><p>"Deixe só uma ideia visual na metade de cima e use letra sem enfeite, pesada, na legenda."</p><p>Um calendário, uma frase, legenda legível.</p></div>
+    </div>
+  </figure>
+  <p data-ex="corretor">Um corretor fez o reel de um apartamento. Na primeira versão, a planta, o preço e o bairro disputavam a metade de cima. Pediu uma ideia só: a planta se desenhando.</p>
+</section>
+
+<section class="step" data-kind="pratica">
+  <h2><span class="n">4</span>Do chat para o post</h2>
+  <p>A animação nasce como uma página. Para postar, você precisa de um arquivo de vídeo. Peça um botão que grava os dez segundos e salva o arquivo.</p>
+  <figure class="largo">
+    <div class="tela">
+      <div class="tela-top"><i></i><i></i><i></i><span>Chat de IA · Opus 5.5</span></div>
+      <div class="tela-body">
+        <p class="msg eu"><span class="quem">Você</span>Adicione um botão "baixar vídeo" que grava os 10 segundos em 1080x1920 e salva o arquivo.</p>
+        <p class="msg ia ok"><span class="quem">IA</span>Adicionei o botão embaixo da animação. Ao tocar, ele grava os 10 segundos e salva o arquivo de vídeo no seu aparelho.</p>
+      </div>
+      <p class="tela-nota bom">O exemplo do step 1 tem esse botão. Nos nossos testes, ele salvou um vídeo de 10 segundos em pé.</p>
+    </div>
+  </figure>
+  <p>Dois contornos, se precisar. Se o botão não baixar dentro da conversa, abra o quadro da animação, baixe a página e abra no navegador. Se a rede social recusar o arquivo, use o gravador de tela do celular enquanto a animação roda.</p>
+</section>
+
+<section class="practice" data-mode="prompt">
+  <p class="pk">Pratique agora <span class="pcount">0/3</span></p>
+  <h3 class="ph">Faça o seu reel e baixe</h3>
+  <p class="pgoal">Pronto quando o arquivo do reel estiver salvo no seu aparelho. No computador, cerca de 10 minutos.</p>
+  <p class="psafe">Nada é publicado: você decide depois se posta. Sem vídeo gravado? Grave agora 7 segundos com o celular, falando uma frase só.</p>
+  <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">R: O meu vídeo tem &lt;7&gt; segundos. Eu falo: "&lt;a frase exata que você falou&gt;". Cores: &lt;suas cores&gt;.
+I: Um reel em pé. Metade de cima: uma animação para essa frase. Metade de baixo: o meu vídeo, com um botão "escolher vídeo" para eu pegar o arquivo no meu aparelho.
+S: Uma ideia visual só na metade de cima: &lt;ex.: um calendário vira as folhas até o dia 7&gt;. Legendas: no máximo 3 palavras, a palavra falada acende. Letra sem enfeite. 1080x1920. Adicione um botão "baixar vídeo" que grava tudo e salva o arquivo.
+E: Desenhe todos os quadros em código a partir de uma única função render(t). Adicione textura real para parecer feito à mão. Antes de terminar, confira os quadros em 0%, 25%, 50%, 75% e 100% e corrija o que estiver errado.</pre></div>
+  <details class="mais"><summary>Veja a linha I e a S escritas por um corretor</summary>
+    <p><b>I:</b> Um reel em pé. Metade de cima: uma animação para "três quartos a dez minutos do metrô". Metade de baixo: o meu vídeo, com o botão "escolher vídeo".<br><b>S:</b> Uma ideia só: a planta do apartamento se desenha e os três quartos acendem. Legenda e botões como no molde.</p>
+  </details>
+  <ol class="psteps">
+    <li><label><input type="checkbox" data-ptask="1"> <span>Preencha o molde com a sua frase e envie no Claude (Opus 5.5).</span></label></li>
+    <li><label><input type="checkbox" data-ptask="2"> <span>Na animação, toque em "escolher vídeo" e pegue a sua gravação. Assista olhando só a legenda.</span></label></li>
+    <li><label><input type="checkbox" data-ptask="3"> <span>Toque em "baixar vídeo" e confira se o arquivo abriu no seu aparelho.</span></label></li>
+  </ol>
+  <p class="pdone">Você fez um reel com animação e legenda sincronizada e tem o arquivo pronto para postar.</p>
+</section>
+
+<div class="fecho">
+  <div class="cola">
+    <p class="k">Cola da aula</p>
+    <h3>Reel em duas metades</h3>
+    <ol>
+      <li><span><b>Cima e baixo</b>animação da ideia em cima, você falando embaixo.</span></li>
+      <li><span><b>Legenda viva</b>até 3 palavras, a falada acende; texto e duração bastam.</span></li>
+      <li><span><b>Dois botões</b>escolher o seu vídeo e baixar o reel pronto.</span></li>
+    </ol>
+  </div>
+  <div class="next-action">
+    <p class="nak">Seu próximo passo</p>
+    <p class="na-win">Você já sabe pedir um reel com animação e legenda e baixar o arquivo.</p>
+    <p class="na-action">Anote três frases que você repete para clientes toda semana. Cada uma pode virar um reel com este mesmo molde.</p>
+    <p class="na-hook">Na próxima aula: o reel ficou bom em pé, mas você também quer ele deitado e quadrado. Sem recortar.</p>
+  </div>
+</div>
+<nav class="lnav"><a href="#aula-4">← aula anterior</a><a class="next" href="#aula-6">próxima aula →</a></nav>
+<p class="aula-pe">Aula 5 · Motion RISE v6 · INEMA.CLUB PRO</p>
+</div>
+<script type="application/json" id="cards-5">
+[
+  {"front":"A legenda do reel aparece atrasada em relação à fala. Como você pede o ajuste?","back":"Diga a palavra e quanto: \"a palavra 'sete' acende tarde; adiante meio segundo\". Depois confira os quadros."},
+  {"front":"Por que no máximo três palavras por vez na legenda?","back":"Porque no celular a pessoa lê num relance. Pedaços curtos acompanham a fala e não cobrem o vídeo."},
+  {"front":"A rede social recusou o arquivo baixado pelo botão. Qual o caminho alternativo?","back":"Rodar a animação na tela e gravar com o gravador de tela do celular. Sai um vídeo comum, aceito em qualquer lugar."}
+]
+</script>
+</section>
